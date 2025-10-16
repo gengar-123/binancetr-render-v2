@@ -1,0 +1,11 @@
+# Ignore local files you don't want in the Render build context
+.git
+node_modules
+vendor
+.env
+*.log
+tmp
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views

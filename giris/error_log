@@ -1,0 +1,58 @@
+[09-Jul-2023 20:54:24 Europe/Istanbul] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in /home/yourvilla/eventlife.online/connect.php on line 17
+[09-Jul-2023 22:52:18 Europe/Istanbul] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in /home/yourvilla/eventlife.online/connect.php on line 17
+[13-Jul-2023 21:18:47 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[13-Jul-2023 21:18:49 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[13-Jul-2023 21:18:50 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[13-Jul-2023 21:18:52 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[14-Jul-2023 14:15:07 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[14-Jul-2023 14:15:07 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[14-Jul-2023 14:15:47 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[14-Jul-2023 14:15:50 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[15-Jul-2023 05:30:58 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[08004] [1040] Too many connections in /home/yourvilla/eventlive.me/connect.php:6
+Stack trace:
+#0 /home/yourvilla/eventlive.me/connect.php(6): PDO->__construct('mysql:host=loca...', 'yourvilla_1', '+OY3ZN@!MY)%')
+#1 /home/yourvilla/eventlive.me/panel/ajax.php(3): require_once('/home/yourvilla...')
+#2 {main}
+  thrown in /home/yourvilla/eventlive.me/connect.php on line 6
+[22-Jul-2023 09:24:44 Europe/Istanbul] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/yourvilla/eventlive.me/connect.php on line 17
+[23-Jul-2023 18:36:38 Europe/Istanbul] PHP Notice:  Undefined index: HTTP_USER_AGENT in /home/yourvilla/eventlive.me/connect.php on line 17
