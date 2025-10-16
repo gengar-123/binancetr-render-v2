@@ -1,4 +1,4 @@
-# render.yaml — minimal ve sorunsuz deploy için
+# PHP web + MariaDB (Render private service)
 services:
   - type: web
     name: binancetr-web
@@ -7,3 +7,43 @@ services:
     dockerfilePath: ./Dockerfile
     autoDeploy: true
     healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DB_DRIVER
+        value: mysql
+      - key: DB_HOST
+        fromService:
+          type: pserv
+          name: mariadb
+          property: host
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_NAME
+        value: appdb
+      - key: DB_USER
+        value: appuser
+      - key: DB_PASSWORD
+        sync: false   # Değeri dashboard'ta gireceksin
+
+  - type: private_service
+    name: mariadb
+    env: docker
+    plan: starter
+    dockerfilePath: ./infra/mariadb/Dockerfile
+    autoDeploy: true
+    disk:
+      name: mariadb-data
+      mountPath: /var/lib/mysql
+      sizeGB: 5
+    envVars:
+      - key: MYSQL_DATABASE
+        value: appdb
+      - key: MYSQL_USER
+        value: appuser
+      - key: MYSQL_PASSWORD
+        sync: false     # Dashboard'ta gir
+      - key: MYSQL_ROOT_PASSWORD
+        sync: false     # Dashboard'ta gir
