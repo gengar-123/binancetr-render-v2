@@ -1,54 +1,9 @@
-# render.yaml — define services on Render
+# render.yaml — minimal ve sorunsuz deploy için
 services:
-  # 1) Your PHP Web Service
   - type: web
-    name: php-web
+    name: binancetr-web
     env: docker
     plan: starter
     dockerfilePath: ./Dockerfile
     autoDeploy: true
     healthCheckPath: /
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: "false"
-      # Database connection (fill these if you use a DB)
-      - key: DB_DRIVER
-        value: mysql
-      - key: DB_HOST
-        fromService:
-          type: pserv
-          name: mariadb # comment this line if you use external DB
-          property: host
-      - key: DB_PORT
-        value: "3306"
-      - key: DB_NAME
-        value: appdb
-      - key: DB_USER
-        value: appuser
-      - key: DB_PASSWORD
-        sync: false  # set in dashboard
-    # If your app has a public/ folder as docroot, move files or change COPY path in Dockerfile.
-
-  # 2) Optional: MariaDB as a Private Service (same Render project)
-  # Comment out this whole block if you use an external MySQL (like PlanetScale)
-  - type: private_service
-    name: mariadb
-    env: docker
-    plan: starter
-    dockerfilePath: ./infra/mariadb/Dockerfile
-    autoDeploy: true
-    disk:
-      name: mariadb-data
-      mountPath: /var/lib/mysql
-      sizeGB: 5
-    envVars:
-      - key: MYSQL_DATABASE
-        value: appdb
-      - key: MYSQL_USER
-        value: appuser
-      - key: MYSQL_PASSWORD
-        sync: false
-      - key: MYSQL_ROOT_PASSWORD
-        sync: false
