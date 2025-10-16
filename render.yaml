@@ -1,6 +1,5 @@
-# render.yaml — PHP web + MariaDB (portu servisten alır)
+# render.yaml — PHP web + MariaDB (Render pserv desteği ile)
 services:
-  # 1) PHP Web
   - type: web
     name: binancetr-web
     env: docker
@@ -20,16 +19,15 @@ services:
         fromService:
           type: pserv
           name: mariadb
-          property: port          # >>> PORT'U SERVİSTEN AL <<<
+          property: port
       - key: DB_NAME
         value: appdb
       - key: DB_USER
         value: appuser
       - key: DB_PASSWORD
-        sync: false              # Render panelinden verilecek
+        sync: false
 
-  # 2) MariaDB Private Service
-  - type: private_service
+  - type: pserv
     name: mariadb
     env: docker
     plan: starter
@@ -45,6 +43,6 @@ services:
       - key: MYSQL_USER
         value: appuser
       - key: MYSQL_PASSWORD
-        sync: false              # Mariadb servisi ENV'inde girilecek
+        sync: false
       - key: MYSQL_ROOT_PASSWORD
-        sync: false              # Mariadb servisi ENV'inde girilecek
+        sync: false
