@@ -1,4 +1,4 @@
-# PHP web + MariaDB (Render private service)
+# render.yaml — PHP web + MariaDB için tam sürüm
 services:
   - type: web
     name: binancetr-web
@@ -8,10 +8,6 @@ services:
     autoDeploy: true
     healthCheckPath: /
     envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: "false"
       - key: DB_DRIVER
         value: mysql
       - key: DB_HOST
@@ -26,7 +22,7 @@ services:
       - key: DB_USER
         value: appuser
       - key: DB_PASSWORD
-        sync: false   # Değeri dashboard'ta gireceksin
+        sync: false
 
   - type: private_service
     name: mariadb
@@ -44,6 +40,6 @@ services:
       - key: MYSQL_USER
         value: appuser
       - key: MYSQL_PASSWORD
-        sync: false     # Dashboard'ta gir
+        sync: false
       - key: MYSQL_ROOT_PASSWORD
-        sync: false     # Dashboard'ta gir
+        sync: false

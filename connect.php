@@ -1,17 +1,18 @@
 <?php
-session_start();
-ob_start();
-date_default_timezone_set('Europe/Istanbul');
- 
-$db = new PDO("mysql:host=localhost;dbname=admin_232323;charset=utf8", "admin_232323", "123Smoke.");
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-require_once 'AjaxClass.php';
+// Render ortam değişkenlerini oku
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$port = getenv('DB_PORT') ?: '3306';
+$db   = getenv('DB_NAME') ?: 'appdb';
+$user = getenv('DB_USER') ?: 'appuser';
+$pass = getenv('DB_PASSWORD') ?: '';
 
-$ajax = new Ajax($db);
-
-DEFINE('IP', $ajax->getIP());
-DEFINE('BAN_URL',"https://www.youtube.com/watch?v=S1mbxjBTiIE");
-
-$session = @$_SESSION['loggedIn'];
-$useragent = $_SERVER['HTTP_USER_AGENT'];
-$acsTime = date('d.m.20y, H:i');
+try {
+    $dsn = "mysql:host={$host};port={$port};dbname={$db};charset=utf8mb4";
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+?>
