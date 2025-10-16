@@ -1,4 +1,4 @@
-# render.yaml — PHP web + MariaDB bağlantısı (Render pserv desteğiyle)
+# render.yaml — PHP web + MariaDB (pserv)
 services:
   - type: web
     name: binancetr-web
@@ -13,7 +13,7 @@ services:
       - key: DB_HOST
         fromService:
           type: pserv
-          name: mariadb
+          name: mariadb          # aşağıdaki pserv'in name'i ile aynı
           property: host
       - key: DB_PORT
         fromService:
@@ -25,10 +25,10 @@ services:
       - key: DB_USER
         value: appuser
       - key: DB_PASSWORD
-        sync: false
+        sync: false             # Render panelinden gizli olarak girilecek
 
   - type: pserv
-    name: mariadb
+    name: mariadb               # web tarafında referans verdiğimiz pserv adı
     env: docker
     plan: starter
     dockerfilePath: ./infra/mariadb/Dockerfile
@@ -43,6 +43,6 @@ services:
       - key: MYSQL_USER
         value: appuser
       - key: MYSQL_PASSWORD
-        sync: false
+        sync: false             # Render panelinden gizli olarak girilecek
       - key: MYSQL_ROOT_PASSWORD
-        sync: false
+        sync: false             # Render panelinden gizli olarak girilecek
