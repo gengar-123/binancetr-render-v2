@@ -1,25 +1,25 @@
 # Dockerfile — PHP 8.3 + Apache for Render
 FROM php:8.3-apache
 
-# Enable Apache modules
-RUN a2enmod rewrite headers
+# Enable Apache modules + install MySQL client (for importing .sql, mysql CLI)
+RUN a2enmod rewrite headers \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends default-mysql-client \
+ && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions commonly used by legacy PHP apps
+# PHP extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Set Apache doc root (default: /var/www/html)
+# Apache doc root
 ENV APACHE_DOCUMENT_ROOT=/var/www/html
 
-# Update Apache vhost to allow .htaccess overrides
+# Allow .htaccess overrides
 COPY apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 
-# Copy app source (Render will build the image from this repo)
+# App source
 COPY . /var/www/html
 
-# Permissions (optional; adjust if your app writes to specific dirs)
+# Permissions (adjust if your app writes elsewhere)
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
-
-# Render runs Docker images with your CMD; Apache is already the default
-# so we don't need to set CMD. The base image starts Apache in the foreground.
