@@ -27,7 +27,7 @@ services:
       - key: DB_PASSWORD
         sync: false
 
-  - type: pserv
+  - type: pserv         # veya private_service
     name: mariadb
     env: docker
     plan: starter
@@ -38,11 +38,11 @@ services:
       mountPath: /var/lib/mysql
       sizeGB: 5
     envVars:
-      - key: MYSQL_DATABASE
+      - key: MARIADB_DATABASE
         value: appdb
-      - key: MYSQL_USER
+      - key: MARIADB_USER
         value: appuser
-      - key: MYSQL_PASSWORD
+      - key: MARIADB_PASSWORD
         sync: false
-      - key: MYSQL_ROOT_PASSWORD
+      - key: MARIADB_ROOT_PASSWORD
         sync: false
