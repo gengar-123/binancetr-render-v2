@@ -1,5 +1,6 @@
-# render.yaml — PHP web + MariaDB için tam sürüm
+# render.yaml — PHP web + MariaDB için tam ve stabil yapı
 services:
+  # 1) PHP Web Servisi
   - type: web
     name: binancetr-web
     env: docker
@@ -7,6 +8,7 @@ services:
     dockerfilePath: ./Dockerfile
     autoDeploy: true
     healthCheckPath: /
+
     envVars:
       - key: DB_DRIVER
         value: mysql
@@ -22,8 +24,9 @@ services:
       - key: DB_USER
         value: appuser
       - key: DB_PASSWORD
-        sync: false
+        sync: false  # Render panelindeki Environment’tan okunur
 
+  # 2) MariaDB (Özel Servis)
   - type: private_service
     name: mariadb
     env: docker
